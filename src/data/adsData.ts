@@ -1,0 +1,297 @@
+export interface AdItem {
+  id: number;
+  filename: string;
+  title: string;
+  duration: string;
+  targetAge: string;
+  angle: string;
+  hook: string;
+  history: string;
+  problem: string;
+  solution: string;
+  cta: string;
+  keyInsight: string;
+}
+
+export const ADS_DATA: AdItem[] = [
+  {
+    "id": 1,
+    "filename": "Detox da Tentante - Grupo Conceber.mp4",
+    "title": "A Metáfora da Laranja Murcha",
+    "duration": "127s",
+    "targetAge": "40+ anos",
+    "angle": "Metáfora Visual & Desmistificação da Idade",
+    "hook": "Seu ovário está igual a uma laranja murcha, foi exatamente isso que uma paciente minha ouviu de um colega médico.",
+    "history": "Infelizmente, dentro da medicina, a fertilidade é muito banalizada quando uma mulher quer engravidar. No sentido de frases como: 'Relaxa que você engravida', 'Você está velha demais'. E eu estou te falando isso porque eu também vivi a mesma coisa. Quando eu estava tentando engravidar com mais de 40 anos e 5 perdas gestacionais, eu sempre ouvi dos meus colegas que estava velha, que era para desistir, fazer FIV com óvulos doados, porque a minha reserva ovariana era insignificante. Só que eu não queria ter óvulos de outra mulher, eu queria mesmo engravidar da minha maneira natural, espontânea e saudável.",
+    "problem": "E a medicina reprodutiva tem evoluído muito, e o principal fator que a mulher precisa é melhorar o seu próprio corpo: sua saúde, seus hormônios, seus nutrientes. Porque é isso que vai garantir que esse óvulo tenha uma chance real de gravidez natural. Esse processo de envelhecimento é o mesmo que acontece nos ovários: um processo de oxidação celular.",
+    "solution": "E existe um processo específico para reduzir essa oxidação, e isso se faz através do Detox da Tentante. São 7 dias em que a gente vai vivenciar um cardápio alimentar específico para retirar tudo aquilo que prejudica a fertilidade e oxida ainda mais as suas células, e incluir aquilo que melhora a saúde reprodutiva. Começa nesta segunda-feira e são 7 dias com cardápio, lista de compras e encontros diários comigo para vivenciar a reparação.",
+    "cta": "Para garantir a sua participação, você só precisa clicar aqui abaixo, se inscrever e segunda-feira a gente começa o Detox da Tentante. Tenho certeza de que fazendo esse passo fundamental vai melhorar muito a sua saúde reprodutiva. Um grande beijo e te vejo lá.",
+    "keyInsight": "Usa um objeto visualmente impactante (laranja murcha) para ilustrar o estresse oxidativo, removendo a culpa da idade e redirecionando para a desintoxicação biológica."
+  },
+  {
+    "id": 2,
+    "filename": "Dra. Talita Melo_1020869797433209_2026-08-27.mp4",
+    "title": "O Sinal das Olheiras Profundas",
+    "duration": "150s",
+    "targetAge": "35 a 45 anos",
+    "angle": "Sintoma Físico & Sono Não-Reparador",
+    "hook": "Se você tem olheiras assim, ó, é um sinal clássico do porquê você não consegue engravidar. Essas olheiras que não conseguem ser nem cobertas com corretivo são um processo de inflamação celular que acontece também lá dentro dos seus ovários.",
+    "history": "E isso é uma grande chave que ninguém te mostra. A gente acha que a gravidez está envolvida apenas com útero e ovário e não é bem assim. Essas olheiras são sinal de que seu sono não está bom, e todos os hormônios para engravidar são produzidos à noite. Quando entendi que minhas olheiras não eram só pelos 40+ anos, mas pelo sono não reparador, vi que meus hormônios estavam ruins mesmo dentro da referência normal do laboratório.",
+    "problem": "Existem várias causas: estresse, deficiência de vitaminas e desequilíbrios hormonais. Isso gera um desequilíbrio hormonal crucial. E não estou falando de tomar hormônios sintéticos, mas de hábitos específicos para ter sono reparador e desintoxicação celular profunda.",
+    "solution": "Nesta segunda-feira começamos o Detox da Tentante: 7 dias acompanhada por médica ginecologista, com cardápio diário, encontros ao vivo para explicar as 4 fases da fertilidade e mapear a trava oculta da sua gravidez.",
+    "cta": "Se você está cansada, não consegue dormir direito e quer engravidar, essa é a sua grande oportunidade. Começa nesta segunda-feira agora. Clique abaixo e se inscreva!",
+    "keyInsight": "Explora uma dor estética e de cansaço universal (olheiras/insônia) conectando diretamente à produção noturna de hormônios reprodutivos."
+  },
+  {
+    "id": 3,
+    "filename": "Dra. Talita Melo_1024844483687544_2026-08-27.mp4",
+    "title": "Remarketing de Abandono de Inscrição",
+    "duration": "23s",
+    "targetAge": "Tentantes em Geral",
+    "angle": "Remarketing de Checkout & Desconto Relâmpago",
+    "hook": "Eu vi que você quase concluiu a sua inscrição para o Detox da Tentante, mas por algum motivo não adquiriu a sua participação.",
+    "history": "Estou aqui para liberar um desconto especial para você participar, porque acredito muito que o Detox é indispensável para realizar o seu grande sonho o quanto antes.",
+    "problem": "Hesitação no checkout e adiamento da decisão biológica.",
+    "solution": "Liberação de desconto exclusivo com acesso imediato aos materiais e grupo.",
+    "cta": "Mas este vídeo vai aparecer apenas esta única vez. Então clica aqui abaixo e garanta este presente para você.",
+    "keyInsight": "Criativo ultracurto para remarketing direto no público de carrinho abandonado com escassez de visualização única."
+  },
+  {
+    "id": 4,
+    "filename": "Dra. Talita Melo_1056369570457812_2026-08-27.mp4",
+    "title": "Gravidez aos 42 e 43 Anos (7x Beta)",
+    "duration": "94s",
+    "targetAge": "40 a 44 anos",
+    "angle": "Jornada da Heroína & 7 Perdas",
+    "hook": "Eu engravidei naturalmente aos 42 e aos 43 anos. E comemorei meu aniversário anunciando para todo mundo que estava grávida.",
+    "history": "Claro que não foi fácil depois dos 40 anos. Mas existe um segredo que eu, médica ginecologista e tentante 40+, descobri: precisamos preparar o corpo da forma correta. Não se trata apenas de engravidar: eu tive 7 betas positivos, mas não tive os 7 bebês nos braços de primeira.",
+    "problem": "Engravidar não basta se o terreno biológico não conseguir sustentar a gestação até o final por conta de inflamações silenciosas.",
+    "solution": "Só consegui segurar as gestações quando preparei meu corpo com o Detox da Tentante de 7 dias com cardápio guiado e encontros ao vivo para descobrir o real motivo do bloqueio.",
+    "cta": "O Detox começa nesta segunda-feira por apenas R$ 57. Basta se inscrever no link abaixo e nos vemos lá!",
+    "keyInsight": "Diferencia 'ter beta positivo' de 'ter o bebê nos braços', tocando na ferida do aborto espontâneo com autoridade de quem superou."
+  },
+  {
+    "id": 5,
+    "filename": "Dra. Talita Melo_1103395118813169_2026-08-27.mp4",
+    "title": "O Mistério da Trombofilia & Hematomas",
+    "duration": "221s",
+    "targetAge": "38 a 45 anos",
+    "angle": "Quebra de Paradoxo da Heparina ('Picadinhas do Amor')",
+    "hook": "Está vendo esse hematoma aqui, ó? Esse machucado foi o que me fez descobrir exatamente o porquê de eu ter 5 perdas gestacionais.",
+    "history": "Falavam que era só pela idade 40+, mas era trombofilia (alteração na coagulação que impede a fixação do embrião no endométrio). Como médica, iniciei o tratamento padrão: as injeções anticoagulantes diárias ('picadinhas do amor'). Mesmo tomando injeções dolorosas, continuei perdendo bebês!",
+    "problem": "O segredo médico oculto: Mesmo com anticoagulantes, o embrião não desenvolve se o corpo estiver inflamado por miomas, adenomiose, hipotireoidismo e toxinas. Remédio sozinho não desinflama o terreno celular.",
+    "solution": "A virada de chave foi o processo de limpeza e desinflamação intencional de 7 dias. Foi assim que meus bebês se desenvolveram. No Detox, você recebe cardápio, encontros ao vivo e auditoria dos exames nas 4 fases.",
+    "cta": "Inscreva-se por apenas R$ 57 no link promocional (com 2 presentes inclusos). Começamos nesta segunda-feira!",
+    "keyInsight": "Desmonta a crença de que medicamentos pesados sozinhos resolvem a trombofilia, posicionando a desinflamação metabólica como o elo que faltava."
+  },
+  {
+    "id": 6,
+    "filename": "Dra. Talita Melo_1353319349953075_2026-08-27.mp4",
+    "title": "Aborto com 8 Semanas & Relatório Individual",
+    "duration": "163s",
+    "targetAge": "40 a 43 anos",
+    "angle": "Luto do Batimento Cardíaco & Relatório com Nome",
+    "hook": "Engravidar aos 41 anos parecia ser impossível. Diziam que só com FIV. Mas aos 41 engravidei naturalmente... e com 8 semanas, um bebezinho tão perfeito, recebi a notícia de que não o teria mais nos braços.",
+    "history": "Ouvir dos médicos que estava velha e que só teria filhos com óvulos doados de outra mulher me doeu na alma. Como ginecologista, decidi não desistir do sonho da minha família e fui além da idade no RG.",
+    "problem": "O estresse oxidativo e exames lidos de forma genérica impedem o embrião de evoluir após a implantação inicial.",
+    "solution": "Desenvolvi o Detox da Tentante: 7 dias de reprogramação alimentar, encontros diários e a entrega de um RELATÓRIO INDIVIDUAL com o seu nome no domingo analisando exatamente a sua causa oculta.",
+    "cta": "Inscreva-se por apenas R$ 57. Baixe a lista de compras e comece sua semana de transformação nesta segunda-feira!",
+    "keyInsight": "Apresenta o grande entregável de alta percepção de valor: o Relatório Individualizado com o nome da tentante por R$ 57."
+  },
+  {
+    "id": 7,
+    "filename": "Dra. Talita Melo_1392481016185038_2026-08-27.mp4",
+    "title": "A Armadilha dos Exames 'Normais'",
+    "duration": "141s",
+    "targetAge": "Tentantes há mais de 2 anos",
+    "angle": "As 4 Fases da Fertilidade vs Tabela de Laboratório",
+    "hook": "Se você tenta engravidar há anos e todos os seus exames dão normais, não significa que você não tenha nada.",
+    "history": "Toda gravidez passa por 4 Fases: Ovulação, Concepção, Implantação e Desenvolvimento. Comigo, aos 40 anos, a trava estava exatamente na fase de Implantação. Quando ajustei essa fase, meus filhos vieram.",
+    "problem": "Médicos convencionais olham apenas as referências genéricas do laboratório e dizem que está tudo bem enquanto a mulher sofre ano após ano.",
+    "solution": "No Detox da Tentante, durante 7 dias aplicamos um cardápio funcional e você traz seus exames para analisarmos fase por fase, finalizando com seu relatório individual.",
+    "cta": "Clique no botão abaixo, garanta os 2 presentes e comece o Detox nesta segunda-feira por R$ 57!",
+    "keyInsight": "Quebra a objeção de quem tem laudo 'normal' mas não engravida, introduzindo o framework autoral das 4 Fases."
+  },
+  {
+    "id": 8,
+    "filename": "Dra. Talita Melo_1465279552076356_2026-08-27.mp4",
+    "title": "O Marco dos 40 Anos & Toxinas Acumuladas",
+    "duration": "118s",
+    "targetAge": "40 anos exatos",
+    "angle": "Idade 40+ & Acúmulo de Toxinas ao Longo da Vida",
+    "hook": "Engravidar aos 40 anos parece ser impossível para a medicina tradicional. Mas eu sabia que existia um caminho.",
+    "history": "Aos 40 anos temos redução ovariana, mas o que trava de verdade a gravidez é a carga de toxinas e inflamações que acumulamos durante 40 anos de vida.",
+    "problem": "O ambiente celular tóxico acelera a degradação dos óvulos remanescentes e impede a sustentação do endométrio.",
+    "solution": "Detox da Tentante: 7 dias para limpar o terreno biológico, ajustar vitaminas e hormônios e abrir caminho para a gestação natural aos 40 anos.",
+    "cta": "Inscrições abertas por R$ 57 no link abaixo com lista de compras e encontros ao vivo na segunda-feira.",
+    "keyInsight": "Transforma a culpa da 'idade avançada' em um problema de 'acúmulo de toxinas tratável' em 7 dias."
+  },
+  {
+    "id": 9,
+    "filename": "Dra. Talita Melo_1590523322710850_2026-08-27.mp4",
+    "title": "10 Anos de Tentativas & Vitória aos 42",
+    "duration": "118s",
+    "targetAge": "Tentantes de longa data (40 a 43 anos)",
+    "angle": "Prova Pessoal Extrema (10 Anos de Tentativa)",
+    "hook": "Engravidar aos 42 anos naturalmente é possível. Eu comemorei meus 42 anos grávida do meu filho após 10 anos de tentativas!",
+    "history": "Ouvi de vários colegas que por causa do antimulleriano baixo e diagnósticos múltiplos eu nunca engravidaria sem ovodoação. Como ginecologista especialista em fertilidade, apliquei o método de desintoxicação integrativa.",
+    "problem": "Processos inflamatórios crônicos e oxidação que passam despercebidos nas consultas rápidas de convênio.",
+    "solution": "Detox de 7 dias com cardápio, lista de compras e aulas diárias para descobrir em qual das 4 fases você está travada.",
+    "cta": "Esteja comigo nesta segunda-feira por R$ 57. Clique abaixo e venha participar!",
+    "keyInsight": "Usa a métrica de '10 anos de tentativa' para acolher as tentantes mais céticas e machucadas do mercado."
+  },
+  {
+    "id": 10,
+    "filename": "Dra. Talita Melo_1592285849263374_2026-08-27.mp4",
+    "title": "A Unha Lascada & Hipotireoidismo Subclínico",
+    "duration": "281s",
+    "targetAge": "35 a 45 anos",
+    "angle": "Sintoma Físico (Unha/Cabelo) & TSH Subclínico (< 2.5 vs 5.0)",
+    "hook": "Está vendo essa unha lascada e descamando aqui? Foi uma unha como essa que me fez descobrir o porquê de todas as minhas 5 perdas gestacionais.",
+    "history": "Minhas unhas viviam quebradiças com pontinhos brancos e meu cabelo caía sem parar. Manicures recomendavam base e vitaminas. Como ginecologista, descobri que a tireoide regula a fertilidade e que o TSH no laboratório dá como 'normal' de 0,5 a 5,0. Mas para engravidar e NÃO perder o bebê, o TSH precisa estar ABAIXO DE 2,5!",
+    "problem": "O meu TSH estava em 3,5 a 4,0 (o médico dizia que estava ótimo, mas para fertilidade estava péssimo). Tomei o remédio (levotiroxina), mas continuei perdendo bebês porque remédio sozinho não desinflama miomas, adenomiose e o endométrio.",
+    "solution": "A gravidez aos 42 e 43 anos só evoluiu quando combinei o ajuste do TSH com o Detox desinflamatório de 7 dias. No evento, ensino a auditar seus exames e entrego seu relatório individual.",
+    "cta": "O Detox custa apenas R$ 57 no link abaixo. Comece nesta segunda-feira e descubra a causa real da sua infertilidade!",
+    "keyInsight": "O criativo mais denso e persuasivo da esteira: une um sintoma cotidiano banal a uma revelação médica científica irrefutável (TSH < 2.5)."
+  },
+  {
+    "id": 11,
+    "filename": "Dra. Talita Melo_1629312612227711_2026-08-27.mp4",
+    "title": "Caso de Sucesso da Aluna Estela",
+    "duration": "50s",
+    "targetAge": "Tentantes com diagnósticos difíceis",
+    "angle": "Prova Social Direta",
+    "hook": "Está vendo essa mulher aqui na foto? Depois de muitos anos de dor, ela entendeu que para engravidar precisava preparar o corpo da forma correta.",
+    "history": "Mesmo com diagnósticos graves, ela aplicou o Detox da Tentante e conquistou o positivo de forma rápida e segura.",
+    "problem": "Despreparo do terreno biológico e falta de interpretação correta dos exames.",
+    "solution": "1 semana guiada por médica ginecologista com cardápio, análise de exames e acompanhamento diário.",
+    "cta": "Garanta sua vaga por R$ 57 no botão abaixo e comece nesta segunda!",
+    "keyInsight": "Criativo de autoridade por resultado de terceiros (prova social rápida)."
+  },
+  {
+    "id": 12,
+    "filename": "Dra. Talita Melo_1680682074062592_2026-08-27.mp4",
+    "title": "Seu Óvulo aos 38 Anos Não Está Velho",
+    "duration": "73s",
+    "targetAge": "38 anos exatos",
+    "angle": "Hipersegmentação 38 Anos & Óvulo Despreparado",
+    "hook": "O seu óvulo não está velho demais para engravidar; o que acontece é que ele está completamente despreparado.",
+    "history": "Aos 38 anos há um processo natural do tempo, mas a medicina integrativa comprova que é possível restaurar a qualidade ovariana e o endométrio para segurar o bebê.",
+    "problem": "Falta de preparo nutricional e celular que faz o óvulo de 38 anos perder energia mitocondrial.",
+    "solution": "Detox da Tentante de 7 dias com cardápio anti-inflamatório e relatório individualizado com seu nome no domingo.",
+    "cta": "Inscreva-se por R$ 57 clicando no link abaixo e inicie na segunda-feira!",
+    "keyInsight": "Quebra instantânea do estigma da idade chamando a mulher de 38 anos pelo nome."
+  },
+  {
+    "id": 13,
+    "filename": "Dra. Talita Melo_1741964334078492_2026-08-27.mp4",
+    "title": "Tentante aos 46 Anos & Envolvimento do Marido",
+    "duration": "39s",
+    "targetAge": "46 anos",
+    "angle": "Idade Extrema (46 Anos) & Fertilidade do Casal",
+    "hook": "Você tem 46 anos e ainda sonha em engravidar?",
+    "history": "Participando do Detox da Tentante, você aprende a equilibrar seu corpo, regular hormônios e envolver o marido (afinal, fertilidade é 50% do homem e 50% da mulher).",
+    "problem": "Tentativas desordenadas sem apoio mútuo e com inflamação celular acumulada.",
+    "solution": "Estratégias para desinflamar o corpo, alinhar hábitos do casal e destravar o positivo.",
+    "cta": "Se você já tentou de tudo e não conseguiu o positivo, garanta sua vaga agora no link abaixo.",
+    "keyInsight": "Toca no nicho de 45+ anos e traz o elemento do marido para o centro da narrativa."
+  },
+  {
+    "id": 14,
+    "filename": "Dra. Talita Melo_1865516768150337_2026-08-27.mp4",
+    "title": "Convite Direto de Segunda-Feira",
+    "duration": "44s",
+    "targetAge": "Público Geral de Tentantes",
+    "angle": "Convite Institucional Direto & Lista de Mercado",
+    "hook": "Nesta segunda-feira agora começa o Detox da Tentante para você que quer realizar o sonho da maternidade.",
+    "history": "Eu, Dra. Talita Melo, ginecologista, preparei uma semana inteira onde vou te guiar passo a passo na preparação completa.",
+    "problem": "Falta de clareza sobre qual é a real causa que está impedindo a gravidez de evoluir.",
+    "solution": "Baixe o cardápio, a lista de compras para ir ao mercado no fim de semana e participe dos encontros diários comigo.",
+    "cta": "O Detox é rápido, prático e transformador. Inscreva-se no link abaixo!",
+    "keyInsight": "Anúncio pragmático de fechamento de semana com ênfase na lista de compras do supermercado."
+  },
+  {
+    "id": 15,
+    "filename": "Dra. Talita Melo_2075822956302845_2026-08-27.mp4",
+    "title": "Remarketing de Urgência Relâmpago",
+    "duration": "22s",
+    "targetAge": "Interessadas que não compraram",
+    "angle": "Urgência & Escassez de Oferta",
+    "hook": "Eu vi que você se interessou pelo Detox da Tentante, mas ainda não se inscreveu.",
+    "history": "Estou aqui para liberar uma condição com desconto exclusivo apenas enquanto este vídeo estiver aparecendo na sua tela.",
+    "problem": "Perder o timing da turma fechada de segunda-feira.",
+    "solution": "Cupom promocional temporário para acesso imediato aos materiais.",
+    "cta": "Clique aqui e garanta sua vaga antes de fechar este vídeo, senão você perderá a oportunidade!",
+    "keyInsight": "Pílula de urgência com gatilho de perda iminente para público morno."
+  },
+  {
+    "id": 16,
+    "filename": "Dra. Talita Melo_2128926424363266_2026-08-27.mp4",
+    "title": "Se Eu Tivesse 39 Anos Hoje",
+    "duration": "89s",
+    "targetAge": "39 anos",
+    "angle": "Empatia Reversa ('Se eu estivesse no seu lugar') & Bônus",
+    "hook": "Se você tem 39 anos e deseja engravidar, se eu estivesse no seu lugar hoje, eu me prepararia de forma altamente intencional.",
+    "history": "Aos 39 anos temos uma dificuldade biológica aumentada, mas precisamos assumir o controle da nossa saúde e desinflamar o terreno antes de desistir.",
+    "problem": "Falta de diagnóstico correto nas 4 fases da gravidez.",
+    "solution": "7 dias de plano alimentar + 7 encontros com ginecologista + relatório individual no domingo + 2 e-books de bônus (Período Fértil e Tempo de Espera).",
+    "cta": "Inscreva-se por R$ 57 no link abaixo e te vejo nesta segunda-feira!",
+    "keyInsight": "Usa a autoridade consultiva ('o que eu faria se fosse você') somada a bônus que aumentam o valor percebido."
+  },
+  {
+    "id": 17,
+    "filename": "Dra. Talita Melo_28850429494544815_2026-08-27.mp4",
+    "title": "35 Anos: O Limite da Fertilidade",
+    "duration": "55s",
+    "targetAge": "35 anos",
+    "angle": "O Ponto de Virada dos 35 Anos",
+    "hook": "Engravidar aos 35 anos é o marco inicial do declínio da fertilidade de acordo com a medicina tradicional.",
+    "history": "Se você comemorou seu aniversário de 35 anos recentemente, você precisa acelerar a realização do sonho da maternidade antes que o relógio aperte.",
+    "problem": "Desgaste mitocondrial inicial que dificulta a concepção natural rápida.",
+    "solution": "Protocolo prático de 7 dias para reestabilizar sua saúde reprodutiva e preparar o útero.",
+    "cta": "Clique abaixo por R$ 57 e começamos nesta segunda-feira!",
+    "keyInsight": "Ativa o gatilho da urgência temporal na idade de corte mais famosa da ginecologia (35 anos)."
+  },
+  {
+    "id": 18,
+    "filename": "Dra. Talita Melo_2911158879229282_2026-08-27.mp4",
+    "title": "37 Anos: Será Que Ainda Consigo?",
+    "duration": "28s",
+    "targetAge": "37 anos",
+    "angle": "Pergunta Direta de Insegurança",
+    "hook": "Tenho 37 anos, será que eu ainda consigo engravidar?",
+    "history": "Se o seu sonho é ser mãe ainda este ano, participe do evento Detox da Tentante.",
+    "problem": "Dúvida paralisante sobre a capacidade reprodutiva aos 37 anos.",
+    "solution": "Descubra a trava oculta da sua fertilidade e como gerar vida independentemente da sua idade.",
+    "cta": "É muito fácil participar: clique no link abaixo e garanta sua vaga agora mesmo.",
+    "keyInsight": "Espelha a exata pergunta que a mulher digita no Google às 23h da noite."
+  },
+  {
+    "id": 19,
+    "filename": "Dra. Talita Melo_37761200456860513_2026-08-27.mp4",
+    "title": "36 Anos: O Relógio Biológico no Limite",
+    "duration": "70s",
+    "targetAge": "36 anos",
+    "angle": "Hipersegmentação 36 Anos & Relatório Individual",
+    "hook": "Se você tem 36 anos e quer engravidar, este vídeo é exatamente para você. Aos 36 anos seu corpo está no ponto limite da fertilidade.",
+    "history": "Você precisa preparar o corpo da forma correta para receber o presente de ter o filho nos braços com hábitos e nutrientes específicos.",
+    "problem": "Alimentos e toxinas inflamatórias que envelhecem precocemente a reserva ovariana.",
+    "solution": "Detox de 7 dias com análise das 4 fases da gravidez e entrega de relatório individualizado com seu nome no último dia.",
+    "cta": "Inscreva-se no link abaixo, baixe o cardápio e a lista de compras para ir ao supermercado!",
+    "keyInsight": "Combina micro-targeting etário com a promessa do relatório personalizado."
+  },
+  {
+    "id": 20,
+    "filename": "Talita Melo _1418548140169465_2026-08-27.mp4",
+    "title": "Anúncio Jurídico de Família (Divórcio)",
+    "duration": "36s",
+    "targetAge": "Pessoas em Processo de Separação",
+    "angle": "Nicho Jurídico Preventivo (Direito de Família)",
+    "hook": "Um erro no divórcio pode custar anos da sua vida.",
+    "history": "Quando um casal decide se separar, muitos acham que o pior já passou, mas é exatamente aí que os erros começam. Decisões tomadas no cansaço ou no medo geram prejuízos irreversíveis.",
+    "problem": "Acordos precipitados sobre patrimônio, pensão e filhos que geram litígios longos.",
+    "solution": "Orientação jurídica preventiva e estratégica antes de assinar qualquer documento.",
+    "cta": "Se você está pensando em se divorciar, não passe por isso sozinho. Busque orientação jurídica agora.",
+    "keyInsight": "Criativo institucional do nicho de Direito de Família (presente na pasta de criativos compartilhada da cliente)."
+  }
+];
