@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { ADS_DATA, AdItem } from '../data/adsData';
 import { 
   ChevronLeft, ChevronRight, Copy, Check, Sparkles, Clock, Target, 
-  Layers, MessageSquareText, ShieldAlert, FileText, ArrowRight
+  FileText, ListOrdered, AlignLeft
 } from 'lucide-react';
 
 export const AdPlayer: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [viewMode, setViewMode] = useState<'structured' | 'continuous'>('structured');
+  const [viewMode, setViewMode] = useState<'structured' | 'continuous' | 'timestamps'>('structured');
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
 
   const ad: AdItem = ADS_DATA[currentIndex];
@@ -16,7 +16,7 @@ export const AdPlayer: React.FC = () => {
     if (currentIndex < ADS_DATA.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      setCurrentIndex(0); // loop around
+      setCurrentIndex(0);
     }
   };
 
@@ -24,7 +24,7 @@ export const AdPlayer: React.FC = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     } else {
-      setCurrentIndex(ADS_DATA.length - 1); // loop around
+      setCurrentIndex(ADS_DATA.length - 1);
     }
   };
 
@@ -35,8 +35,7 @@ export const AdPlayer: React.FC = () => {
   };
 
   const copyFullAd = () => {
-    const full = `[TÍTULO]: ${ad.title}\n[DURAÇÃO]: ${ad.duration} | [IDADE]: ${ad.targetAge}\n\n[HOOK]: ${ad.hook}\n\n[HISTÓRIA]: ${ad.history}\n\n[MECANISMO DO PROBLEMA]: ${ad.problem}\n\n[MECANISMO DA SOLUÇÃO]: ${ad.solution}\n\n[CTA]: ${ad.cta}`;
-    copyToClipboard(full, 'full');
+    copyToClipboard(ad.fullText, 'full');
   };
 
   return (
@@ -122,6 +121,10 @@ export const AdPlayer: React.FC = () => {
                 <Target className="w-3 h-3 text-purple-400" />
                 {ad.targetAge}
               </span>
+              <span className="px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 text-xs font-medium border border-emerald-500/30 flex items-center gap-1">
+                <FileText className="w-3 h-3 text-emerald-400" />
+                {ad.fullText.split(' ').length} palavras
+              </span>
             </div>
             <h2 className="text-xl md:text-2xl font-bold text-white tracking-tight">
               {ad.title}
@@ -131,7 +134,7 @@ export const AdPlayer: React.FC = () => {
             </p>
           </div>
 
-          {/* Toggle Structured vs Continuous & Copy Button */}
+          {/* Toggle View Mode & Copy Button */}
           <div className="flex items-center gap-2 self-start md:self-auto">
             <div className="flex items-center p-1 bg-white/5 rounded-xl border border-white/10 text-xs">
               <button
@@ -148,13 +151,21 @@ export const AdPlayer: React.FC = () => {
                   viewMode === 'continuous' ? 'bg-blue-600 text-white shadow' : 'text-neutral-400 hover:text-white'
                 }`}
               >
-                Texto Corrido
+                Texto Completo
+              </button>
+              <button
+                onClick={() => setViewMode('timestamps')}
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
+                  viewMode === 'timestamps' ? 'bg-blue-600 text-white shadow' : 'text-neutral-400 hover:text-white'
+                }`}
+              >
+                Timestamps
               </button>
             </div>
 
             <button
               onClick={copyFullAd}
-              title="Copiar transcrição completa"
+              title="Copiar transcrição completa verbatim"
               className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 border border-white/10 text-neutral-300 hover:text-white transition-all"
             >
               {copiedSection === 'full' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -171,131 +182,163 @@ export const AdPlayer: React.FC = () => {
           </div>
         </div>
 
-        {/* Content View: Structured Blocks vs Continuous */}
-        {viewMode === 'structured' ? (
+        {/* Mode 1: Structured Blocks */}
+        {viewMode === 'structured' && (
           <div className="space-y-4">
             
             {/* 1. HOOK */}
-            <div className="p-5 rounded-2xl bg-emerald-500/[0.04] border border-emerald-500/20 hover:border-emerald-500/40 transition-all space-y-2 relative group">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
-                    Hook / Gancho de Atenção (0 - 5s)
-                  </span>
+            {ad.hook && (
+              <div className="p-5 rounded-2xl bg-emerald-500/[0.04] border border-emerald-500/20 hover:border-emerald-500/40 transition-all space-y-2 relative group">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                      Hook / Gancho de Atenção (Abertura)
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => copyToClipboard(ad.hook, 'hook')}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 text-xs flex items-center gap-1"
+                  >
+                    {copiedSection === 'hook' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span className="text-[10px]">Copiar</span>
+                  </button>
                 </div>
-                <button
-                  onClick={() => copyToClipboard(ad.hook, 'hook')}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 text-xs flex items-center gap-1"
-                >
-                  {copiedSection === 'hook' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span className="text-[10px]">Copiar</span>
-                </button>
+                <p className="text-sm md:text-base text-neutral-100 font-medium leading-relaxed">
+                  "{ad.hook}"
+                </p>
               </div>
-              <p className="text-sm md:text-base text-neutral-100 font-medium leading-relaxed">
-                "{ad.hook}"
-              </p>
-            </div>
+            )}
 
             {/* 2. HISTÓRIA */}
-            <div className="p-5 rounded-2xl bg-purple-500/[0.04] border border-purple-500/20 hover:border-purple-500/40 transition-all space-y-2 relative group">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-purple-500" />
-                  <span className="text-xs font-bold text-purple-400 uppercase tracking-wider">
-                    História / Vulnerabilidade Médica
-                  </span>
+            {ad.history && (
+              <div className="p-5 rounded-2xl bg-purple-500/[0.04] border border-purple-500/20 hover:border-purple-500/40 transition-all space-y-2 relative group">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-purple-500" />
+                    <span className="text-xs font-bold text-purple-400 uppercase tracking-wider">
+                      História / Vulnerabilidade Médica
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => copyToClipboard(ad.history, 'history')}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 text-xs flex items-center gap-1"
+                  >
+                    {copiedSection === 'history' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span className="text-[10px]">Copiar</span>
+                  </button>
                 </div>
-                <button
-                  onClick={() => copyToClipboard(ad.history, 'history')}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 text-xs flex items-center gap-1"
-                >
-                  {copiedSection === 'history' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span className="text-[10px]">Copiar</span>
-                </button>
+                <p className="text-sm md:text-base text-neutral-200 leading-relaxed">
+                  {ad.history}
+                </p>
               </div>
-              <p className="text-sm md:text-base text-neutral-200 leading-relaxed">
-                {ad.history}
-              </p>
-            </div>
+            )}
 
             {/* 3. MECANISMO DO PROBLEMA */}
-            <div className="p-5 rounded-2xl bg-rose-500/[0.04] border border-rose-500/20 hover:border-rose-500/40 transition-all space-y-2 relative group">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                  <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">
-                    Mecanismo do Problema (O Vilão Oculto)
-                  </span>
+            {ad.problem && (
+              <div className="p-5 rounded-2xl bg-rose-500/[0.04] border border-rose-500/20 hover:border-rose-500/40 transition-all space-y-2 relative group">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                    <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">
+                      Mecanismo do Problema (O Vilão Biológico)
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => copyToClipboard(ad.problem, 'problem')}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-rose-500/10 text-rose-300 hover:bg-rose-500/20 text-xs flex items-center gap-1"
+                  >
+                    {copiedSection === 'problem' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span className="text-[10px]">Copiar</span>
+                  </button>
                 </div>
-                <button
-                  onClick={() => copyToClipboard(ad.problem, 'problem')}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-rose-500/10 text-rose-300 hover:bg-rose-500/20 text-xs flex items-center gap-1"
-                >
-                  {copiedSection === 'problem' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span className="text-[10px]">Copiar</span>
-                </button>
+                <p className="text-sm md:text-base text-neutral-200 leading-relaxed">
+                  {ad.problem}
+                </p>
               </div>
-              <p className="text-sm md:text-base text-neutral-200 leading-relaxed">
-                {ad.problem}
-              </p>
-            </div>
+            )}
 
             {/* 4. MECANISMO DA SOLUÇÃO */}
-            <div className="p-5 rounded-2xl bg-amber-500/[0.04] border border-amber-500/20 hover:border-amber-500/40 transition-all space-y-2 relative group">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                  <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
-                    Mecanismo da Solução (O Detox da Tentante - 7 Dias)
-                  </span>
+            {ad.solution && (
+              <div className="p-5 rounded-2xl bg-amber-500/[0.04] border border-amber-500/20 hover:border-amber-500/40 transition-all space-y-2 relative group">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                    <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+                      Mecanismo da Solução (O Detox da Tentante)
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => copyToClipboard(ad.solution, 'solution')}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 text-xs flex items-center gap-1"
+                  >
+                    {copiedSection === 'solution' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span className="text-[10px]">Copiar</span>
+                  </button>
                 </div>
-                <button
-                  onClick={() => copyToClipboard(ad.solution, 'solution')}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 text-xs flex items-center gap-1"
-                >
-                  {copiedSection === 'solution' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span className="text-[10px]">Copiar</span>
-                </button>
+                <p className="text-sm md:text-base text-neutral-200 leading-relaxed">
+                  {ad.solution}
+                </p>
               </div>
-              <p className="text-sm md:text-base text-neutral-200 leading-relaxed">
-                {ad.solution}
-              </p>
-            </div>
+            )}
 
             {/* 5. CTA */}
-            <div className="p-5 rounded-2xl bg-blue-500/[0.06] border border-blue-500/30 hover:border-blue-500/50 transition-all space-y-2 relative group">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">
-                    CTA / Chamada para Ação (Oferta R$ 57)
-                  </span>
+            {ad.cta && (
+              <div className="p-5 rounded-2xl bg-blue-500/[0.06] border border-blue-500/30 hover:border-blue-500/50 transition-all space-y-2 relative group">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+                    <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">
+                      CTA / Chamada para Ação
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => copyToClipboard(ad.cta, 'cta')}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 text-xs flex items-center gap-1"
+                  >
+                    {copiedSection === 'cta' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span className="text-[10px]">Copiar</span>
+                  </button>
                 </div>
-                <button
-                  onClick={() => copyToClipboard(ad.cta, 'cta')}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-lg bg-blue-500/10 text-blue-300 hover:bg-blue-500/20 text-xs flex items-center gap-1"
-                >
-                  {copiedSection === 'cta' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span className="text-[10px]">Copiar</span>
-                </button>
+                <p className="text-sm md:text-base text-neutral-100 font-medium leading-relaxed">
+                  "{ad.cta}"
+                </p>
               </div>
-              <p className="text-sm md:text-base text-neutral-100 font-medium leading-relaxed">
-                "{ad.cta}"
-              </p>
-            </div>
+            )}
 
           </div>
-        ) : (
-          /* Continuous Text Mode */
+        )}
+
+        {/* Mode 2: Complete Verbatim Text */}
+        {viewMode === 'continuous' && (
           <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-white/5 text-xs text-neutral-400">
-              <span>Transcrição Completa Contínua</span>
-              <span className="font-mono">{ad.duration}</span>
+              <span className="font-semibold text-neutral-300">Transcrição Verbatim Completa (Palavra por Palavra)</span>
+              <span className="font-mono">{ad.duration} • {ad.fullText.split(' ').length} palavras</span>
             </div>
-            <p className="text-sm md:text-base text-neutral-200 leading-relaxed whitespace-pre-line font-sans">
-              {`${ad.hook} ${ad.history} ${ad.problem} ${ad.solution} ${ad.cta}`}
+            <p className="text-sm md:text-base text-neutral-100 leading-relaxed font-sans whitespace-pre-line select-text">
+              {ad.fullText}
             </p>
+          </div>
+        )}
+
+        {/* Mode 3: Timestamps Breakdown */}
+        {viewMode === 'timestamps' && (
+          <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
+            <div className="flex items-center justify-between pb-3 border-b border-white/5 text-xs text-neutral-400">
+              <span className="font-semibold text-neutral-300">Segmentos com Timestamps Exatos</span>
+              <span className="font-mono">{ad.segments.length} segmentos</span>
+            </div>
+            <div className="space-y-2 max-h-[500px] overflow-y-auto pr-2">
+              {ad.segments.map((seg, sidx) => (
+                <div key={sidx} className="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-3 text-xs">
+                  <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono text-[11px] shrink-0">
+                    {Math.floor(seg.start / 60)}:{(seg.start % 60).toFixed(0).padStart(2, '0')} - {Math.floor(seg.end / 60)}:{(seg.end % 60).toFixed(0).padStart(2, '0')}
+                  </span>
+                  <p className="text-neutral-200 leading-relaxed">{seg.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
